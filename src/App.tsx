@@ -1,281 +1,262 @@
-function Portfolio() {
+export default function Portfolio() {
   const projects = [
     {
-      title: 'AI Diagnostic Evaluation Agents',
+      title: 'AI Evaluation Agents',
       description:
-        'Built 3 Python-based AI diagnostic agents at Meta that automated defect reproduction and scaled issue detection from 70 cases/day to 200+ overnight, reducing manual investigation time by ~75%.',
-      tech: ['Python', 'LLM Evaluation', 'Automation', 'AI Tooling'],
+        'Built AI diagnostic evaluation agents that automated issue triaging and scaled testing coverage from 70 to 200+ cases overnight.',
+      stack: 'Python • LLM Evaluation • Automation • AI Systems',
     },
     {
-      title: 'Automated Test Case Generation System',
+      title: 'Prompt Regression Framework',
       description:
-        'Developed internal tooling that generated test cases from Figma designs and video inputs, accelerating QA workflows and improving engineering turnaround speed.',
-      tech: ['Python', 'Computer Vision', 'Automation'],
+        'Designed a regression testing workflow for validating GenAI model quality, reducing manual verification effort significantly.',
+      stack: 'Python • Prompt Testing • CI/CD • Analytics',
     },
     {
-      title: 'AWS Honeycode Quality Infrastructure',
+      title: 'Meta AI Quality Tooling',
       description:
-        'Led end-to-end quality engineering for AWS Honeycode from alpha through GA launch, including automation strategy, CI/CD quality gates, and release validation.',
-      tech: ['AWS', 'Python', 'CI/CD', 'Linux'],
+        'Developed internal QA tooling and automation infrastructure supporting Meta AI product launches and evaluation workflows.',
+      stack: 'Automation • Infra • AI QA • Scale Testing',
     },
-  ];
-
-  const skills = [
-    'Python Automation',
-    'AI Quality Engineering',
-    'LLM Evaluation',
-    'GenAI Testing',
-    'WebdriverIO',
-    'Appium',
-    'AWS',
-    'Linux',
-    'CI/CD',
-    'REST APIs',
-    'Docker',
-    'JavaScript',
-    'TypeScript',
-    'Root Cause Analysis',
-    'Automation Frameworks',
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold tracking-tight">Darshan Shah</h1>
-          <div className="flex gap-6 text-sm text-gray-300">
-            <a href="#about" className="hover:text-white transition">About</a>
-            <a href="#experience" className="hover:text-white transition">Experience</a>
-            <a href="#projects" className="hover:text-white transition">Projects</a>
-            <a href="#contact" className="hover:text-white transition">Contact</a>
-          </div>
-        </div>
-      </nav>
+    <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(120,119,198,0.18),transparent_40%)]" />
 
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 mb-6">
-              AI Quality Engineering • Meta • AWS
+        <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
+          <div className="max-w-4xl">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-gray-300 backdrop-blur-sm">
+              AI Quality Engineering • LLM Evaluation • Automation Infrastructure
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-              Building AI quality systems that scale.
+            <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+              Darshan Shah
             </h1>
 
-            <p className="mt-8 text-lg text-gray-300 leading-relaxed max-w-2xl">
-              QA Engineering Lead with 12+ years of experience across Meta, AWS, Google, and Facebook.
-              Specializing in AI evaluation tooling, GenAI quality systems, automation infrastructure,
-              and scalable diagnostic frameworks.
+            <p className="mt-6 max-w-3xl text-xl leading-8 text-gray-300 sm:text-2xl">
+              Senior Software Quality Engineer specializing in GenAI quality systems,
+              automation infrastructure, AI evaluation tooling, and scalable testing
+              frameworks across Meta and AWS platforms.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
+                href="https://www.linkedin.com/in/darshansoftwareqa/"
+                target="_blank"
+                className="rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-105"
+              >
+                Connect on LinkedIn
+              </a>
+
+              <a
                 href="https://github.com/dys2806"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-2xl bg-white text-black font-medium hover:scale-105 transition"
+                className="rounded-2xl border border-white/20 bg-white/5 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
               >
-                GitHub
+                View GitHub
+              </a>
+
+              <a
+                href="/resume.pdf"
+                className="rounded-2xl border border-white/20 px-6 py-4 text-sm font-semibold text-gray-200 transition hover:border-white"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE METRICS */}
+      <section className="mx-auto grid max-w-7xl gap-6 px-6 py-20 lg:grid-cols-4 lg:px-10">
+        {[
+          ['8+', 'Years Experience'],
+          ['Meta', 'AI Quality Engineering'],
+          ['200+', 'Automated AI Evaluations'],
+          ['AWS', 'Large Scale Product Quality'],
+        ].map(([number, label]) => (
+          <div
+            key={label}
+            className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm"
+          >
+            <div className="text-4xl font-bold">{number}</div>
+            <div className="mt-2 text-gray-400">{label}</div>
+          </div>
+        ))}
+      </section>
+
+      {/* ABOUT */}
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+              About
+            </p>
+            <h2 className="text-4xl font-bold leading-tight">
+              Building quality systems for AI-first products.
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-lg leading-8 text-gray-300">
+            <p>
+              I specialize in AI quality engineering, LLM evaluation systems,
+              automation frameworks, and scalable validation infrastructure.
+            </p>
+
+            <p>
+              My experience spans Meta AI initiatives, Instagram Teen Accounts,
+              AWS Honeycode, mobile testing, backend automation, and intelligent
+              evaluation tooling.
+            </p>
+
+            <p>
+              I focus on reducing manual quality operations through automation,
+              reproducible testing pipelines, and AI-assisted debugging workflows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+        <div className="mb-14">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+            Featured Work
+          </p>
+
+          <h2 className="text-4xl font-bold">
+            AI QA systems and automation tooling.
+          </h2>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-3">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="group rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+            >
+              <div className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-400">
+                {project.stack}
+              </div>
+
+              <h3 className="text-2xl font-semibold">{project.title}</h3>
+
+              <p className="mt-4 leading-7 text-gray-400">
+                {project.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="border-y border-white/10 bg-white/[0.02]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+          <div className="mb-14">
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+              Core Expertise
+            </p>
+            <h2 className="text-4xl font-bold">Technical capabilities.</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              'LLM Evaluation',
+              'AI Quality Engineering',
+              'Python Automation',
+              'Prompt Testing',
+              'Mobile Automation',
+              'API Testing',
+              'CI/CD Pipelines',
+              'Test Infrastructure',
+              'Selenium & Appium',
+              'AWS Services',
+              'Data Validation',
+              'Scalable QA Systems',
+            ].map((skill) => (
+              <div
+                key={skill}
+                className="rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-gray-300"
+              >
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GITHUB SECTION */}
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+              GitHub
+            </p>
+
+            <h2 className="text-4xl font-bold leading-tight">
+              Building public AI QA engineering credibility.
+            </h2>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+            <p className="text-lg leading-8 text-gray-300">
+              Currently building a focused GitHub presence around AI evaluation
+              frameworks, automation utilities, prompt regression systems, and
+              scalable testing workflows.
+            </p>
+
+            <a
+              href="https://github.com/dys2806"
+              target="_blank"
+              className="mt-8 inline-flex rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-105"
+            >
+              Visit GitHub Profile
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-6 pb-28 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-10 lg:p-16">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+              Open To Opportunities
+            </p>
+
+            <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
+              Interested in AI quality engineering, automation leadership, or
+              GenAI evaluation systems?
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              I’m currently exploring opportunities focused on AI quality,
+              intelligent testing infrastructure, scalable automation, and LLM
+              evaluation systems.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="mailto:darshan@example.com"
+                className="rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-black transition hover:scale-105"
+              >
+                Contact Me
               </a>
 
               <a
                 href="https://www.linkedin.com/in/darshansoftwareqa/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
+                className="rounded-2xl border border-white/20 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                LinkedIn
+                LinkedIn Profile
               </a>
             </div>
           </div>
-
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-4xl font-bold">12+</p>
-                <p className="text-gray-400 mt-2">Years Experience</p>
-              </div>
-
-              <div>
-                <p className="text-4xl font-bold">200+</p>
-                <p className="text-gray-400 mt-2">Issues Detected Overnight</p>
-              </div>
-
-              <div>
-                <p className="text-4xl font-bold">75%</p>
-                <p className="text-gray-400 mt-2">Reduction in Investigation Time</p>
-              </div>
-
-              <div>
-                <p className="text-4xl font-bold">1B+</p>
-                <p className="text-gray-400 mt-2">Users Supported</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
-
-      <section id="about" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="grid lg:grid-cols-3 gap-12">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-400">About</p>
-            <h2 className="text-4xl font-bold mt-4">Builder mindset applied to quality engineering.</h2>
-          </div>
-
-          <div className="lg:col-span-2 text-gray-300 leading-relaxed text-lg space-y-6">
-            <p>
-              I currently lead AI quality engineering initiatives at Meta, where I build Python-based
-              evaluation agents, automation systems, and diagnostic tooling that improve model quality
-              workflows at scale.
-            </p>
-
-            <p>
-              My work spans GenAI evaluation, automated defect reproduction, human-in-the-loop validation,
-              release quality systems, and scalable QA infrastructure across products used by billions of users.
-            </p>
-
-            <p>
-              Across Meta, AWS, Google, and Facebook, I've focused on creating systems that make testing
-              faster, smarter, and more reliable.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="flex items-center justify-between mb-16">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-400">Experience</p>
-            <h2 className="text-4xl font-bold mt-4">Career Highlights</h2>
-          </div>
-        </div>
-
-        <div className="space-y-10">
-          <div className="border border-white/10 rounded-3xl p-8 bg-white/5">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div>
-                <h3 className="text-2xl font-semibold">Meta</h3>
-                <p className="text-gray-400 mt-1">QA Engineering Lead • 2024 — Present</p>
-              </div>
-              <div className="text-sm text-gray-400">Menlo Park, California</div>
-            </div>
-
-            <ul className="mt-6 space-y-4 text-gray-300 leading-relaxed list-disc pl-5">
-              <li>Built AI diagnostic agents scaling issue detection from 70 to 200+ cases overnight.</li>
-              <li>Developed internal automation tools accelerating root-cause analysis workflows.</li>
-              <li>Led quality validation for Meta AI Spark features across global release cycles.</li>
-              <li>Managed distributed QA operations across US and offshore teams.</li>
-            </ul>
-          </div>
-
-          <div className="border border-white/10 rounded-3xl p-8 bg-white/5">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div>
-                <h3 className="text-2xl font-semibold">Amazon Web Services</h3>
-                <p className="text-gray-400 mt-1">Software Engineer, Quality • 2017 — 2024</p>
-              </div>
-              <div className="text-sm text-gray-400">Seattle, Washington</div>
-            </div>
-
-            <ul className="mt-6 space-y-4 text-gray-300 leading-relaxed list-disc pl-5">
-              <li>Owned end-to-end quality engineering for AWS Honeycode.</li>
-              <li>Designed automation templates and CI/CD quality infrastructure.</li>
-              <li>Expanded API and UI automation coverage across SaaS release cycles.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="mb-16">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-400">Projects</p>
-          <h2 className="text-4xl font-bold mt-4">AI & Automation Work</h2>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="border border-white/10 bg-white/5 rounded-3xl p-8 hover:bg-white/10 transition"
-            >
-              <h3 className="text-2xl font-semibold leading-tight">{project.title}</h3>
-
-              <p className="mt-5 text-gray-300 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-sm px-3 py-1 rounded-full border border-white/10 text-gray-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="mb-16">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-400">Skills</p>
-          <h2 className="text-4xl font-bold mt-4">Technical Expertise</h2>
-        </div>
-
-        <div className="flex flex-wrap gap-4">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="px-5 py-3 rounded-2xl bg-white/5 border border-white/10 text-gray-200"
-            >
-              {skill}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-400">Contact</p>
-
-          <h2 className="text-5xl font-bold mt-6 leading-tight">
-            Interested in AI quality engineering, automation, or GenAI evaluation?
-          </h2>
-
-          <p className="mt-8 text-lg text-gray-300 leading-relaxed">
-            I'm currently focused on building scalable AI quality systems, automation tooling,
-            and evaluation frameworks that improve engineering velocity and product reliability.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="mailto:darshanyshah@gmail.com"
-              className="px-6 py-3 rounded-2xl bg-white text-black font-medium hover:scale-105 transition"
-            >
-              Email Me
-            </a>
-
-            <a
-              href="https://github.com/dys2806"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
-            >
-              View GitHub
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }
-
-function App() {
-  return <Portfolio />;
-}
-
-export default App;
