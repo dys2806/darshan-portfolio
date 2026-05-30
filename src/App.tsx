@@ -27,17 +27,28 @@ export default function Portfolio() {
 
   const skills = [
     "LLM Evaluation",
+    "AI Quality Systems",
     "Agentic AI Testing",
     "Prompt Validation",
-    "Automation Strategy",
-    "Python",
-    "Appium",
-    "WebdriverIO",
-    "REST API Testing",
-    "CI/CD",
-    "AWS",
-    "Quality Leadership",
-    "Release Readiness",
+    "Evaluation Harnesses",
+    "Autonomous Test Generation",
+    "Human-in-the-Loop QA",
+    "AI Defect Detection",
+    "Python Automation",
+    "CI/CD Quality Gates",
+    "Release Qualification",
+    "Quality Strategy",
+    "Team Leadership",
+    "Test Infrastructure",
+  ];
+
+  const roles = [
+    "Principal QA Engineer",
+    "Senior QA Lead",
+    "AI QA Engineer",
+    "AI QA Manager",
+    "Quality Engineering Manager",
+    "AI Evaluation Engineer",
   ];
 
   const fadeUp = {
@@ -48,7 +59,7 @@ export default function Portfolio() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
       {/* HERO */}
-      <section className="relative px-6 py-24 sm:py-32">
+      <section className="relative px-6 pt-20 pb-12 sm:pt-24 sm:pb-16">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_bottom_right,#e0e7ff,transparent_35%)]" />
 
         <motion.div
@@ -67,16 +78,40 @@ export default function Portfolio() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-xl leading-8 text-slate-600">
-            Quality Engineering Leader building AI evaluation infrastructure,
-            autonomous testing systems, and release quality programs for products
-            serving 1B+ users.
+            AI-focused Quality Engineering Leader building evaluation systems,
+            autonomous testing infrastructure, and release-quality solutions for
+            GenAI products serving 1B+ users.
           </p>
 
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {[
+              "🤖 LLM Evaluation",
+              "⚡ Agent Testing",
+              "🛠 AI Quality Systems",
+              "🚀 Release Qualification",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold text-slate-700">
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">Meta</span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">AWS</span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">Google</span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">Facebook</span>
+            <span className="rounded-full bg-blue-50 px-4 py-2 text-blue-700 shadow-sm">
+              Currently: Meta GenAI
+            </span>
+            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
+              Previously: AWS
+            </span>
+            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
+              Google
+            </span>
+            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
+              Facebook
+            </span>
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -109,7 +144,7 @@ export default function Portfolio() {
       </section>
 
       {/* METRICS */}
-      <section className="mx-auto grid max-w-6xl grid-cols-2 gap-5 px-6 py-12 lg:grid-cols-4">
+      <section className="mx-auto -mt-4 grid max-w-6xl grid-cols-2 gap-5 px-6 py-8 lg:grid-cols-4">
         {[
           ["12+", "Years in Quality Engineering"],
           ["1B+", "Users Impacted"],
@@ -125,13 +160,15 @@ export default function Portfolio() {
             className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >
             <div className="text-4xl font-extrabold text-blue-700">{num}</div>
-            <div className="mt-2 text-sm font-medium text-slate-600">{label}</div>
+            <div className="mt-2 text-sm font-medium text-slate-600">
+              {label}
+            </div>
           </motion.div>
         ))}
       </section>
 
       {/* ABOUT */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -153,12 +190,12 @@ export default function Portfolio() {
             className="space-y-5 text-lg leading-8 text-slate-600"
           >
             <p>
-              I’m a Quality Engineering Lead specializing in GenAI, LLM
-              evaluation, agentic AI testing, and scalable automation systems.
+              I specialize in GenAI quality, LLM evaluation, agentic AI testing,
+              automation infrastructure, and scalable release readiness systems.
             </p>
             <p>
-              My experience spans Meta, AWS, Google, and Facebook, where I’ve
-              built validation architecture, release gates, automation
+              My experience spans Meta, AWS, Google, and Facebook, where I have
+              built validation architecture, quality gates, automation
               frameworks, and AI quality workflows for high-impact products.
             </p>
           </motion.div>
@@ -166,7 +203,7 @@ export default function Portfolio() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="mb-10">
           <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
             Featured Impact
@@ -198,13 +235,13 @@ export default function Portfolio() {
       </section>
 
       {/* SKILLS */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-xl sm:p-10">
           <p className="text-sm font-bold uppercase tracking-widest text-blue-300">
             Core Skills
           </p>
           <h2 className="mt-3 text-4xl font-extrabold">
-            Where I create value
+            AI quality, automation, and solution-building skills
           </h2>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -221,7 +258,7 @@ export default function Portfolio() {
       </section>
 
       {/* EXPERIENCE */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
           Experience
         </p>
@@ -231,9 +268,21 @@ export default function Portfolio() {
 
         <div className="mt-10 space-y-5">
           {[
-            ["Meta", "Quality Engineering Lead, GenAI", "LLM evaluation infrastructure, AI QA tooling, release qualification, and distributed QA leadership."],
-            ["Amazon Web Services", "Senior Software Quality Engineer", "Validation architecture, automation frameworks, CI/CD quality gates, and AWS Honeycode launch readiness."],
-            ["Google / Facebook / Ooyala", "Software Quality Engineering Roles", "Cloud, consumer platform, video streaming, and large-scale functional validation experience."],
+            [
+              "Meta",
+              "Quality Engineering Lead, GenAI",
+              "LLM evaluation infrastructure, AI QA tooling, release qualification, agentic testing workflows, and distributed QA leadership.",
+            ],
+            [
+              "Amazon Web Services",
+              "Senior Software Quality Engineer",
+              "Validation architecture, automation frameworks, CI/CD quality gates, release readiness, and AWS Honeycode launch quality.",
+            ],
+            [
+              "Google / Facebook / Ooyala",
+              "Software Quality Engineering Roles",
+              "Cloud, consumer platform, video streaming, test automation, and large-scale functional validation experience.",
+            ],
           ].map(([company, role, detail]) => (
             <div
               key={company}
@@ -247,15 +296,43 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* OPEN TO */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="rounded-3xl border border-blue-100 bg-white p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
+            Open To
+          </p>
+          <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
+            Roles where quality engineering meets AI systems
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+            I am focused on opportunities involving AI quality, LLM evaluation,
+            automation infrastructure, technical leadership, and scalable release
+            quality.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {roles.map((role) => (
+              <span
+                key={role}
+                className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700"
+              >
+                {role}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 py-24 text-center">
+      <section className="mx-auto max-w-6xl px-6 py-20 text-center">
         <div className="rounded-3xl bg-blue-700 p-10 text-white shadow-xl">
           <h2 className="text-4xl font-extrabold">
-            Looking for a QA leader who understands AI systems?
+            Building the next generation of AI quality systems
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
-            I’m open to Principal QA Engineer, AI QA Engineer, QA Lead, and
-            Quality Engineering Manager roles.
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-blue-100">
+            If your team is building AI products, evaluation systems, automation
+            platforms, or quality infrastructure, I would love to connect.
           </p>
 
           <a
