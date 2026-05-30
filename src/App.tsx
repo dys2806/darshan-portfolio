@@ -258,43 +258,71 @@ export default function Portfolio() {
       </section>
 
       {/* EXPERIENCE */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
-          Experience
-        </p>
-        <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
-          Built across top-tier engineering organizations
-        </h2>
+<section className="mx-auto max-w-6xl px-6 py-16">
+  <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
+    Experience
+  </p>
+  <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
+    Career built across AI, cloud, consumer platforms, and automation
+  </h2>
 
-        <div className="mt-10 space-y-5">
-          {[
-            [
-              "Meta",
-              "Quality Engineering Lead, GenAI",
-              "LLM evaluation infrastructure, AI QA tooling, release qualification, agentic testing workflows, and distributed QA leadership.",
-            ],
-            [
-              "Amazon Web Services",
-              "Senior Software Quality Engineer",
-              "Validation architecture, automation frameworks, CI/CD quality gates, release readiness, and AWS Honeycode launch quality.",
-            ],
-            [
-              "Google / Facebook / Ooyala",
-              "Software Quality Engineering Roles",
-              "Cloud, consumer platform, video streaming, test automation, and large-scale functional validation experience.",
-            ],
-          ].map(([company, role, detail]) => (
-            <div
-              key={company}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <h3 className="text-2xl font-bold">{company}</h3>
-              <p className="mt-1 font-semibold text-blue-700">{role}</p>
-              <p className="mt-3 leading-7 text-slate-600">{detail}</p>
-            </div>
-          ))}
+  <div className="mt-10 grid gap-5">
+    {[
+      [
+        "🏢 Meta",
+        "Quality Engineering Lead, GenAI",
+        "2024 – Present",
+        "Building LLM evaluation infrastructure, AI QA tooling, agentic testing workflows, release qualification systems, and leading distributed QA teams for GenAI products.",
+      ],
+      [
+        "☁️ Amazon Web Services",
+        "Senior Software Quality Engineer",
+        "2017 – 2024",
+        "Owned validation architecture, automation frameworks, CI/CD quality gates, release readiness, and AWS Honeycode quality from Alpha through GA.",
+      ],
+      [
+        "🔍 Google",
+        "Software Engineer, Test",
+        "2017",
+        "Validated Google Cloud IVR workflows, voice response flows, feature quality, and large-scale cloud service reliability.",
+      ],
+      [
+        "🎬 Ooyala",
+        "Software Engineer, Functional Test",
+        "2016 – 2017",
+        "Tested video streaming platform quality across playback, encoding, delivery workflows, web surfaces, and device experiences.",
+      ],
+      [
+        "👍 Facebook",
+        "Software Engineer, Quality",
+        "2015 – 2016",
+        "Supported quality engineering for core Facebook platform features, functional testing, regression coverage, and large-scale consumer product validation.",
+      ],
+      [
+        "🧪 Agilent Technologies",
+        "Junior Automation Engineer",
+        "2015",
+        "Built early automation and validation experience across enterprise testing workflows, quality processes, and test execution.",
+      ],
+    ].map(([company, role, years, detail]) => (
+      <div
+        key={company}
+        className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h3 className="text-2xl font-bold">{company}</h3>
+            <p className="mt-1 font-semibold text-blue-700">{role}</p>
+          </div>
+          <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600">
+            {years}
+          </span>
         </div>
-      </section>
+        <p className="mt-4 leading-7 text-slate-600">{detail}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* OPEN TO */}
       <section className="mx-auto max-w-6xl px-6 py-16">
