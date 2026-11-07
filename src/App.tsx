@@ -1,376 +1,308 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Portfolio() {
-  const projects = [
-    {
-      icon: "🤖",
-      title: "LLM Evaluation Agents",
-      description:
-        "Architected AI evaluation agents that scaled validation from 70 cases/day to 200+ overnight, improving AI quality coverage and release confidence.",
-      stack: "Python • LLM Evaluation • Agent Testing • AI QA",
-    },
-    {
-      icon: "⚙️",
-      title: "Autonomous Test Generation",
-      description:
-        "Built AI-powered test generation workflows from Figma designs and video recordings, reducing manual validation effort by 75%.",
-      stack: "GenAI • Automation • Test Infrastructure • CI/CD",
-    },
-    {
-      icon: "🚀",
-      title: "Release Quality at Scale",
-      description:
-        "Defined release qualification gates, regression baselines, safety criteria, and production readiness checks for AI products serving 1B+ users.",
-      stack: "Quality Strategy • Risk-Based Testing • Release Gates",
-    },
-  ];
+const LINKEDIN = "https://www.linkedin.com/in/darshanyshah/";
+const GITHUB = "https://github.com/dys2806";
 
-  const skills = [
-    "LLM Evaluation",
-    "AI Quality Systems",
-    "Agentic AI Testing",
-    "Prompt Validation",
-    "Evaluation Harnesses",
-    "Autonomous Test Generation",
-    "Human-in-the-Loop QA",
-    "AI Defect Detection",
-    "Python Automation",
-    "CI/CD Quality Gates",
-    "Release Qualification",
-    "Quality Strategy",
-    "Team Leadership",
-    "Test Infrastructure",
-  ];
+const impact = [
+  {
+    metric: "70 → 200+",
+    title: "LLM Evaluation Agents",
+    description:
+      "AI evaluation agents that scaled validation from 70 cases a day to 200+ overnight, improving quality coverage and release confidence.",
+    stack: "Python · LLM Evaluation · Agent Testing",
+  },
+  {
+    metric: "-75%",
+    title: "Autonomous Test Generation",
+    description:
+      "AI-powered test generation workflows from Figma designs and video recordings, reducing manual validation effort by 75%.",
+    stack: "GenAI · Automation · Test Infrastructure · CI/CD",
+  },
+  {
+    metric: "1B+",
+    title: "Release Quality at Scale",
+    description:
+      "Release qualification gates, regression baselines, safety criteria, and production readiness checks for AI products serving 1B+ users.",
+    stack: "Quality Strategy · Risk-Based Testing · Release Gates",
+  },
+];
 
-  const roles = [
-    "Principal QA Engineer",
-    "Senior QA Lead",
-    "AI QA Engineer",
-    "AI QA Manager",
-    "Quality Engineering Manager",
-    "AI Evaluation Engineer",
-  ];
+const skills = [
+  ["LLM Evaluation", "LLM-as-judge, benchmarking, prompt validation"],
+  ["AI Safety Testing", "Red teaming, trust & safety, responsible AI"],
+  ["Agentic AI Testing", "Testing systems that act, not just answer"],
+  ["Evaluation Tooling", "Eval harnesses, dashboards, defect detection"],
+  ["Test Infrastructure", "Automation frameworks, CI/CD signal"],
+  ["Release Quality", "Quality gates, release qualification, build health"],
+  ["Human-in-the-Loop", "Ground truth, rater agreement, human eval"],
+  ["Test Automation", "Python automation, autonomous test generation"],
+  ["Quality Strategy", "Risk-based testing, shift-left, readiness"],
+];
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+function Logo({ src, name, muted }: { src: string; name: string; muted?: boolean }) {
+  const [err, setErr] = useState(false);
+  if (err) {
+    return (
+      <span className="text-base font-bold tracking-tight text-slate-700">{name}</span>
+    );
+  }
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
-      {/* HERO */}
-      <section className="relative px-6 pt-20 pb-12 sm:pt-24 sm:pb-16">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_bottom_right,#e0e7ff,transparent_35%)]" />
+    <img
+      src={src}
+      alt={name}
+      onError={() => setErr(true)}
+      className={`max-h-7 w-auto max-w-[110px] object-contain object-left ${
+        muted ? "opacity-60 grayscale" : ""
+      }`}
+    />
+  );
+}
 
-        <motion.div
+const experience = [
+  {
+    logo: "/logos/meta.svg",
+    name: "Meta",
+    dates: "2024 — Present",
+    line: "Quality Engineering, GenAI — LLM evaluation, safety testing, and release quality for GenAI products at global scale.",
+  },
+  {
+    logo: "/logos/aws.svg",
+    name: "Amazon Web Services",
+    dates: "2017 — 2024",
+    line: "Honeycode quality from zero to GA as its first QA engineer; Kindle hardware-software test automation at Amazon.",
+  },
+  {
+    logo: "/logos/google.svg",
+    name: "Google (via EPAM)",
+    dates: "2017",
+    line: "Cloud IVR voice AI validation.",
+    muted: true,
+  },
+  {
+    logo: "/logos/ooyala.svg",
+    name: "Ooyala",
+    dates: "2016 — 2017",
+    line: "Video streaming platform quality.",
+    muted: true,
+  },
+  {
+    logo: "/logos/facebook.svg",
+    name: "Facebook",
+    dates: "2015 — 2016",
+    line: "Platform quality; test suite cut from 1,900 to 1,300 tests.",
+    muted: true,
+  },
+  {
+    logo: "/logos/agilent.svg",
+    name: "Agilent Technologies",
+    dates: "2015",
+    line: "Test automation, early career.",
+    muted: true,
+  },
+];
+
+const certs = [
+  "Responsible AI Dashboard & Scorecard — Microsoft, 2024",
+  "Project Management Foundations: Quality — PMI, 2024",
+  "Generative AI Overview for Project Managers — PMI, 2024",
+  "Introduction to Large Language Models — Google, 2023",
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export default function Portfolio() {
+  return (
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      <div className="mx-auto max-w-5xl px-6 py-14 sm:py-20">
+        {/* HEADER / BIO */}
+        <motion.header
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-6xl text-center"
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-8 sm:flex-row"
         >
-          <div className="mb-6 inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-medium text-blue-700 shadow-sm">
-            🚀 AI QA Engineering • LLM Evaluation • Quality Leadership
-          </div>
-
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
-            Darshan Shah
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-3xl text-xl leading-8 text-slate-600">
-            AI-focused Quality Engineering Leader building evaluation systems,
-            autonomous testing infrastructure, and release-quality solutions for
-            GenAI products serving 1B+ users.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {[
-              "🤖 LLM Evaluation",
-              "⚡ Agent Testing",
-              "🛠 AI Quality Systems",
-              "🚀 Release Qualification",
-            ].map((item) => (
-              <span
-                key={item}
-                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold text-slate-700">
-            <span className="rounded-full bg-blue-50 px-4 py-2 text-blue-700 shadow-sm">
-              Currently: Meta GenAI
-            </span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
-              Previously: AWS
-            </span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
-              Google
-            </span>
-            <span className="rounded-full bg-white px-4 py-2 shadow-sm">
-              Facebook
-            </span>
-          </div>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="https://www.linkedin.com/in/darshansoftwareqa/"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-2xl bg-blue-700 px-7 py-3 font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:-translate-y-1 hover:bg-blue-800"
-            >
-              View LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/dys2806"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-2xl border border-slate-300 bg-white px-7 py-3 font-semibold text-slate-800 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-            >
-              View GitHub
-            </a>
-
-            <a
-              href="mailto:darshanyshah@gmail.com"
-              className="rounded-2xl border border-slate-300 bg-white px-7 py-3 font-semibold text-slate-800 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-            >
-              Contact Me
-            </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* METRICS */}
-      <section className="mx-auto -mt-4 grid max-w-6xl grid-cols-2 gap-5 px-6 py-8 lg:grid-cols-4">
-        {[
-          ["12+", "Years in Quality Engineering"],
-          ["1B+", "Users Impacted"],
-          ["30", "Person QA Org Led"],
-          ["75%", "Manual Effort Reduced"],
-        ].map(([num, label], i) => (
-          <motion.div
-            key={label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-          >
-            <div className="text-4xl font-extrabold text-blue-700">{num}</div>
-            <div className="mt-2 text-sm font-medium text-slate-600">
-              {label}
-            </div>
-          </motion.div>
-        ))}
-      </section>
-
-      {/* ABOUT */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
-              About Me
+          <img
+            src="/darshan-autumn.jpg"
+            alt="Darshan Shah"
+            className="w-full max-w-[260px] flex-none self-start rounded-2xl object-cover shadow-md"
+          />
+          <div>
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              Darshan Shah
+            </h1>
+            <p className="mt-2 text-lg font-bold text-blue-700">
+              Quality Engineering · GenAI
             </p>
-            <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
-              I help teams ship reliable AI products.
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-5 text-lg leading-8 text-slate-600"
-          >
-            <p>
-              I specialize in GenAI quality, LLM evaluation, agentic AI testing,
-              automation infrastructure, and scalable release readiness systems.
+            <p className="mt-1 text-sm text-slate-500">Bay Area, California</p>
+            <p className="mt-3 text-sm font-semibold">
+              <a className="text-blue-700 hover:underline" href={LINKEDIN} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <span className="mx-2 text-slate-300">·</span>
+              <a className="text-blue-700 hover:underline" href={GITHUB} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
             </p>
-            <p>
-              My experience spans Meta, AWS, Google, and Facebook, where I have
-              built validation architecture, quality gates, automation
-              frameworks, and AI quality workflows for high-impact products.
+            <p className="mt-6 text-xl font-semibold leading-relaxed">
+              AI can pass every test and still not be safe to ship. My work is
+              catching that gap.
             </p>
-          </motion.div>
-        </div>
-      </section>
+            <p className="mt-4 leading-7 text-slate-600">
+              I work in Quality Engineering for GenAI products used at global
+              scale — building LLM evaluation, safety testing, and release
+              gates across mobile, web, and desktop. I build evaluation agents
+              and quality tooling that scaled validation from 70 manual runs a
+              day to 200+ automated overnight.
+            </p>
+            <p className="mt-4 leading-7 text-slate-600">
+              Previously at AWS for about seven years, I built quality from
+              zero — first QA engineer on Honeycode, from alpha to GA, and test
+              automation for Kindle devices. Earlier, quality work at Google,
+              Facebook, and Ooyala. 12+ years in quality engineering. M.S. in
+              Engineering Management.
+            </p>
+          </div>
+        </motion.header>
 
-      {/* FEATURED WORK */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="mb-10">
+        {/* FEATURED IMPACT */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
           <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
             Featured Impact
           </p>
-          <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">
             AI QA systems, automation, and release quality at scale
           </h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <div className="text-3xl">{p.icon}</div>
-              <div className="mt-5 text-sm font-semibold text-blue-700">
-                {p.stack}
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {impact.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl border border-slate-200 border-t-4 border-t-blue-700 bg-white p-6 shadow-sm"
+              >
+                <div className="text-3xl font-extrabold text-blue-700">{p.metric}</div>
+                <h3 className="mt-3 text-xl font-bold">{p.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{p.description}</p>
+                <p className="mt-4 text-sm font-semibold text-blue-700">{p.stack}</p>
               </div>
-              <h3 className="mt-3 text-2xl font-bold">{p.title}</h3>
-              <p className="mt-4 leading-7 text-slate-600">{p.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </motion.section>
 
-      {/* SKILLS */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-xl sm:p-10">
+        {/* CORE SKILLS */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.6 }}
+          className="mt-20 rounded-3xl bg-slate-900 p-8 text-white shadow-xl sm:p-10"
+        >
           <p className="text-sm font-bold uppercase tracking-widest text-blue-300">
             Core Skills
           </p>
-          <h2 className="mt-3 text-4xl font-extrabold">
+          <h2 className="mt-2 text-3xl font-extrabold">
             AI quality, automation, and solution-building skills
           </h2>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-slate-100"
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {skills.map(([name, def]) => (
+              <div
+                key={name}
+                className="rounded-xl border border-white/10 bg-white/5 p-4"
               >
-                {skill}
-              </span>
+                <p className="font-bold text-slate-100">{name}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-400">{def}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </motion.section>
 
-      {/* EXPERIENCE */}
-<section className="mx-auto max-w-6xl px-6 py-16">
-  <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
-    Experience
-  </p>
-  <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
-    Career built across AI, cloud, consumer platforms, and automation
-  </h2>
-
-  <div className="mt-10 grid gap-5">
-    {[
-      [
-        "🏢 Meta",
-        "Quality Engineering Lead, GenAI",
-        "2024 – Present",
-        "Building LLM evaluation infrastructure, AI QA tooling, agentic testing workflows, release qualification systems, and leading distributed QA teams for GenAI products.",
-      ],
-      [
-        "☁️ Amazon Web Services",
-        "Senior Software Quality Engineer",
-        "2017 – 2024",
-        "Owned validation architecture, automation frameworks, CI/CD quality gates, release readiness, and AWS Honeycode quality from Alpha through GA.",
-      ],
-      [
-        "🔍 Google",
-        "Software Engineer, Test",
-        "2017",
-        "Validated Google Cloud IVR workflows, voice response flows, feature quality, and large-scale cloud service reliability.",
-      ],
-      [
-        "🎬 Ooyala",
-        "Software Engineer, Functional Test",
-        "2016 – 2017",
-        "Tested video streaming platform quality across playback, encoding, delivery workflows, web surfaces, and device experiences.",
-      ],
-      [
-        "👍 Facebook",
-        "Software Engineer, Quality",
-        "2015 – 2016",
-        "Supported quality engineering for core Facebook platform features, functional testing, regression coverage, and large-scale consumer product validation.",
-      ],
-      [
-        "🧪 Agilent Technologies",
-        "Junior Automation Engineer",
-        "2015",
-        "Built early automation and validation experience across enterprise testing workflows, quality processes, and test execution.",
-      ],
-    ].map(([company, role, years, detail]) => (
-      <div
-        key={company}
-        className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-      >
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h3 className="text-2xl font-bold">{company}</h3>
-            <p className="mt-1 font-semibold text-blue-700">{role}</p>
-          </div>
-          <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600">
-            {years}
-          </span>
-        </div>
-        <p className="mt-4 leading-7 text-slate-600">{detail}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
-      {/* OPEN TO */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="rounded-3xl border border-blue-100 bg-white p-8 shadow-sm sm:p-10">
+        {/* EXPERIENCE */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
           <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
-            Open To
+            Experience
           </p>
-          <h2 className="mt-3 text-4xl font-extrabold tracking-tight">
-            Roles where quality engineering meets AI systems
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-            I am focused on opportunities involving AI quality, LLM evaluation,
-            automation infrastructure, technical leadership, and scalable release
-            quality.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {roles.map((role) => (
-              <span
-                key={role}
-                className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700"
+          <div className="mt-4">
+            {experience.map((e) => (
+              <div
+                key={e.name}
+                className="flex flex-col gap-2 border-t border-slate-200 py-5 sm:flex-row sm:gap-6"
               >
-                {role}
-              </span>
+                <div className="flex h-8 w-[130px] flex-none items-center">
+                  <Logo src={e.logo} name={e.name} muted={e.muted} />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold">
+                    {e.name}
+                    <span className="float-right text-sm font-semibold text-slate-400">
+                      {e.dates}
+                    </span>
+                  </p>
+                  <p className="mt-1 leading-7 text-slate-600">{e.line}</p>
+                </div>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </motion.section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 py-20 text-center">
-        <div className="rounded-3xl bg-blue-700 p-10 text-white shadow-xl">
-          <h2 className="text-4xl font-extrabold">
-            Building the next generation of AI quality systems
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-blue-100">
-            If your team is building AI products, evaluation systems, automation
-            platforms, or quality infrastructure, I would love to connect.
+        {/* EDUCATION & CERTIFICATIONS */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
+            Education & Certifications
           </p>
+          <div className="mt-4 grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="font-bold">M.S. in Engineering Management</p>
+              <p className="mt-1 font-bold">Bachelor of Management Studies</p>
+            </div>
+            <ul className="space-y-2 leading-7 text-slate-600">
+              {certs.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </div>
+        </motion.section>
 
-          <a
-            href="mailto:darshanyshah@gmail.com"
-            className="mt-8 inline-block rounded-2xl bg-white px-7 py-3 font-semibold text-blue-700 transition hover:-translate-y-1 hover:shadow-lg"
-          >
-            Let’s Connect ✨
-          </a>
-        </div>
-      </section>
+        {/* FOOTER */}
+        <footer className="mt-20 border-t border-slate-200 pt-8 text-sm text-slate-500">
+          <p className="font-semibold text-slate-700">
+            Darshan Shah · Quality Engineering, GenAI · Bay Area, California
+          </p>
+          <p className="mt-2 font-semibold">
+            <a className="text-blue-700 hover:underline" href={LINKEDIN} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <span className="mx-2 text-slate-300">·</span>
+            <a className="text-blue-700 hover:underline" href={GITHUB} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }
