@@ -1,8 +1,28 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Linkedin, Github, Mail } from "lucide-react";
 
 const LINKEDIN = "https://www.linkedin.com/in/darshanyshah/";
 const GITHUB = "https://github.com/dys2806";
+const EMAIL = "mailto:darshanyshah@gmail.com";
+
+function ContactLinks() {
+  const cls =
+    "inline-flex items-center gap-1.5 text-blue-700 hover:underline";
+  return (
+    <span className="inline-flex flex-wrap items-center gap-x-4 gap-y-2">
+      <a className={cls} href={LINKEDIN} target="_blank" rel="noreferrer">
+        <Linkedin size={16} /> LinkedIn
+      </a>
+      <a className={cls} href={GITHUB} target="_blank" rel="noreferrer">
+        <Github size={16} /> GitHub
+      </a>
+      <a className={cls} href={EMAIL}>
+        <Mail size={16} /> Email me
+      </a>
+    </span>
+  );
+}
 
 const impact = [
   {
@@ -102,11 +122,16 @@ const experience = [
   },
 ];
 
-const certs = [
-  "Responsible AI Dashboard & Scorecard — Microsoft, 2024",
-  "Project Management Foundations: Quality — PMI, 2024",
-  "Generative AI Overview for Project Managers — PMI, 2024",
-  "Introduction to Large Language Models — Google, 2023",
+const education = [
+  "M.S. in Engineering Management",
+  "Bachelor of Management Studies",
+];
+
+const certs: Array<[string, string]> = [
+  ["Responsible AI Dashboard & Scorecard", "Microsoft · 2024"],
+  ["Project Management Foundations: Quality", "PMI · 2024"],
+  ["Generative AI Overview for Project Managers", "PMI · 2024"],
+  ["Introduction to Large Language Models", "Google · 2023"],
 ];
 
 const fadeUp = {
@@ -140,13 +165,7 @@ export default function Portfolio() {
             </p>
             <p className="mt-1 text-sm text-slate-500">Bay Area, California</p>
             <p className="mt-3 text-sm font-semibold">
-              <a className="text-blue-700 hover:underline" href={LINKEDIN} target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-              <span className="mx-2 text-slate-300">·</span>
-              <a className="text-blue-700 hover:underline" href={GITHUB} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
+              <ContactLinks />
             </p>
             <p className="mt-6 text-xl font-semibold leading-relaxed">
               AI can pass every test and still not be safe to ship. My work is
@@ -272,18 +291,27 @@ export default function Portfolio() {
           className="mt-20"
         >
           <p className="text-sm font-bold uppercase tracking-widest text-blue-700">
-            Education & Certifications
+            Education
           </p>
-          <div className="mt-4 grid gap-8 sm:grid-cols-2">
-            <div>
-              <p className="font-bold">M.S. in Engineering Management</p>
-              <p className="mt-1 font-bold">Bachelor of Management Studies</p>
-            </div>
-            <ul className="space-y-2 leading-7 text-slate-600">
-              {certs.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
+          <div className="mt-4">
+            {education.map((d) => (
+              <p key={d} className="border-t border-slate-200 py-3 font-bold">
+                {d}
+              </p>
+            ))}
+          </div>
+          <p className="mt-10 text-sm font-bold uppercase tracking-widest text-blue-700">
+            Certifications
+          </p>
+          <div className="mt-4">
+            {certs.map(([name, meta]) => (
+              <p key={name} className="border-t border-slate-200 py-3">
+                <span className="font-bold">{name}</span>
+                <span className="float-right text-sm font-semibold text-slate-400">
+                  {meta}
+                </span>
+              </p>
+            ))}
           </div>
         </motion.section>
 
@@ -293,13 +321,7 @@ export default function Portfolio() {
             Darshan Shah · Quality Engineering, GenAI · Bay Area, California
           </p>
           <p className="mt-2 font-semibold">
-            <a className="text-blue-700 hover:underline" href={LINKEDIN} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-            <span className="mx-2 text-slate-300">·</span>
-            <a className="text-blue-700 hover:underline" href={GITHUB} target="_blank" rel="noreferrer">
-              GitHub
-            </a>
+            <ContactLinks />
           </p>
         </footer>
       </div>
