@@ -154,7 +154,7 @@ export default function Portfolio() {
           <img
             src="/darshan-autumn.jpg"
             alt="Darshan Shah"
-            className="w-full max-w-[260px] flex-none self-start rounded-2xl object-cover shadow-md"
+            className="w-full max-w-[260px] flex-none self-start rounded-2xl object-cover shadow-md sm:self-stretch"
           />
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
